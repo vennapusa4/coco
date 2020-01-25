@@ -2,8 +2,8 @@ import { getDate } from "../utilities/getDate";
 const date=getDate();
 
 const initialState = {
-    data:[{message: "Hi. CoCo here",from:true,date:date,options:[
-     "What can you do?","What's on my screen","Play music"
+    data:[{message: "Hi. CoCo here...",from:true,date:date,options:[
+     "What can you do?","Schedule a Delivery","Track Order"
     ]},] 
 }
 export const postMessageR= function(state = initialState, action) {

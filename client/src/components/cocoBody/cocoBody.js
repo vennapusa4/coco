@@ -28,10 +28,10 @@ var data=this.props.messages.data;
                     What can you do?
            </button>
                 <button className="btn_content" onClick={(e) => this.sendonbnclick("What's on my screen")}>
-                    What's on my screen
+                Schedule a Delivery
            </button>
                 <button className="btn_content" onClick={(e) => this.sendonbnclick("Play music")}>
-                    Play music
+                Track Order
            </button>
            </div>
            
