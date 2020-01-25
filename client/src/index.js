@@ -8,7 +8,8 @@ import { Provider } from "react-redux";
 import reducers from "./reducers";
 import thunk from 'redux-thunk';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store=createStore(reducers, {}, composeEnhancers(applyMiddleware(thunk)))
+const store=createStore(reducers, {}, composeEnhancers(applyMiddleware(thunk)));
+window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
 ReactDOM.render(
     <Provider  store={store}><App /></Provider>,
     document.querySelector('#root')

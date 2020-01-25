@@ -8,7 +8,10 @@ function renercontent(data) {
     console.log(data);
   
     var a=  data.map(element=>{
-        if (element.from) {
+        if(element.message==""){
+            return null;
+        }
+        else if (element.from) {
             return(
                 <div className="cardSection">
                 <div  className="cardlogo">
