@@ -3,11 +3,23 @@ import { connect } from 'react-redux';
 import {postMessage} from "../../actions";
 import Loader from "../loader/loader";
 import Card from "../card/card";
+import coco from "../../images/logo.png";
+import "./cocoBody.css";
+
 class  CoCoBody extends React.Component {
     componentDidUpdate()
     {
         window.scrollTo(0,document.body.scrollHeight);
     }
+    // componentDidMount(){
+    //     $(".cocoBody").fadeOut();
+    //     setTimeout(()=>{ 
+    //       $(".cocoBody").fadeIn(2000);
+    //       //this.refs.rightSlider.style.left="-100%";
+    //       //this.refs.rightSlider.style.transition="2.5s";
+    //     }, 2000);
+       
+    //   }
      renercontent=() =>{
 var data=this.props.messages.data;
 
@@ -20,6 +32,9 @@ var data=this.props.messages.data;
             return(
                 
                 <div className="cocoBody">
+                        <div className="headerIcon">
+                  <img src={coco} className="logoWidth"/>
+              </div>
                      <h1 className="nomargin cocoHere">
                      {element.message}
             </h1>
@@ -27,10 +42,10 @@ var data=this.props.messages.data;
                 <button className="btn_content" onClick={(e) => this.sendonbnclick("What can you do?")}>
                     What can you do?
            </button>
-                <button className="btn_content" onClick={(e) => this.sendonbnclick("What's on my screen")}>
+                <button className="btn_content" onClick={(e) => this.sendonbnclick("Schedule a Delivery")}>
                 Schedule a Delivery
            </button>
-                <button className="btn_content" onClick={(e) => this.sendonbnclick("Play music")}>
+                <button className="btn_content" onClick={(e) => this.sendonbnclick("Track Order")}>
                 Track Order
            </button>
            </div>

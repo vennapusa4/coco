@@ -1,6 +1,6 @@
 import store from "../index";
 const apiai = require('test422');
-const app = apiai("af5a5dee9a84473bb83898476d40e8ef");
+const app = apiai("09e87d444f5a4a0180544ae327d75788");
 
 export const postMessage =  (data,date)=>async(dispatch)=>  {
   var data1={message: data,from:false,date:date,options:[]};

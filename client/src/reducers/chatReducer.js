@@ -2,7 +2,7 @@ import { getDate } from "../utilities/getDate";
 const date=getDate();
 
 const initialState = {
-    data:[{message: "Hi. CoCo here...",from:true,date:date,options:[
+    data:[{message: "Hi, CoCo here...",from:true,date:date,options:[
      "What can you do?","Schedule a Delivery","Track Order"
     ]},] 
 }

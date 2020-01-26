@@ -19,7 +19,7 @@ const Card = ({message,date}) => {
                
              </div>
              <div  className="cardlogo_R">
-                 <img style={{ width: "100%" }} src={user}></img>
+                 <img style={{ height:"47px"}} src={user}></img>
              </div>
              </div>
     </div>

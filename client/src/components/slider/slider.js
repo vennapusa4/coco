@@ -1,20 +1,22 @@
 import React from 'react';
 import "./slider.css";
-import coco from "../../images/coco.png";
+import coco from "../../images/logo.png";
+import $ from "jquery"
 class  Slider extends React.Component {
   
   componentDidMount(){
     setTimeout(()=>{ 
-      this.refs.rightSlider.style.left="-100%";
-      this.refs.rightSlider.style.transition="2.5s";
-    }, 2000);
+      $(".rightSlider").fadeOut(2000);
+      //this.refs.rightSlider.style.left="-100%";
+      //this.refs.rightSlider.style.transition="2.5s";
+    }, 1500);
    
   }
     render(){
         return (
             <div className="rightSlider" ref="rightSlider">
               <div className="homeIcon">
-                  <img src={coco} style={{width:"100%"}}/>
+                  <img src={coco} style={{width:"50%"}}/>
               </div>
               <div>
                 <h1 className="nomargin homeText">Conversational App</h1>

@@ -2,10 +2,13 @@ import React from 'react';
 import "./footer.css";
 import { connect } from 'react-redux';
 import {postMessage} from "../../actions"
+var click=1;
 class  Footer extends React.Component {
   state = { userMsg: "" };
   recognition = new window.SpeechRecognition();
-  styles="cocoMicBlue"
+  styles="cocoMicBlue";
+  
+   
   send=(e)=> {
     e.preventDefault();
   if (this.state.userMsg!="" && e.keyCode === 13) {
@@ -17,12 +20,10 @@ class  Footer extends React.Component {
   }
  }
  componentDidMount(){
-
+  window.recording=false;
   this.recognition.onaudiostart = (event)=> {
-    console.log('Audio capturing started');
     this.styles="cocoMicRed";
     this.refs.mic.className="cocoMicRed";
-    debugger;
     this.refs.inputbox.attributes.placeholder.value="I am listening speak now";
 
   }
@@ -36,14 +37,23 @@ class  Footer extends React.Component {
     console.log('Speech has been detected');
     this.styles="cocoMicRed";
   }
+  this.recognition.onstart =  () =>{
+    window.recording = true;
+   };
+   this.recognition.onend =  ()=> {
+    window.recording = false;
+   };
+
+
   this.recognition.onspeechend = (event)=> {
     console.log('Speech has been ened');
     this.styles="cocoMicBlue"
   }
   this.recognition.onresult = (event)=> {
-   
+  
    if (event.results[0][0].transcript) {
-    this.setState({ userMsg: event.results[0][0].transcript });  
+    this.setState({ userMsg: event.results[0][0].transcript }); 
+    this.refs.inputbox.focus(); 
    }
    
   }
@@ -51,12 +61,20 @@ class  Footer extends React.Component {
 componentWillReceiveProps(nextProps) {
   this.setState({ userMsg: nextProps.userMsg });  
 }
+startcono=()=>{
+  if (!window.recording) {
+    this.recognition.start()
+  }
+}
+
     render(){
         return (
             <div className="cocoFooter" >
               <div className="cocoSearchBox">
               <input ref="inputbox" onKeyUp={this.send} onChange={(e)=> this.setState({userMsg:e.target.value})} value={this.state.userMsg}   className="cocoInput" placeholder="Type a message"/>
-              <div ref="mic" className="cocoMicBlue" onClick={()=>{this.recognition.start()}}>       
+              <div ref="mic" className="cocoMicBlue" onClick={()=>{this.startcono()}}>       
+              </div>
+              <div className="cocoSend" onClick={()=>{this.startcono()}}>       
               </div>
               </div>
             </div>

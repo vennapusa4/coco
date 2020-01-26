@@ -82,10 +82,7 @@
 .cardlogo{
   width: 3.5%;
 }
-.cardlogo_R{
-  width: 4%;
-    /* margin: .1rem 0rem 1rem 0.2rem; */
-}
+
 .card-panel {
   
   padding: 10px !important;
@@ -152,7 +149,16 @@
 }
 .cocoHere{
   color: white;
+  word-wrap: break-word;
+  font-size: 4.2rem;
+}
+@media screen and (max-width: 480px) {
+  .cocoHere{
+      font-size: 3.2rem !important;
+  }
 }
 .cocoBody{
-height: 80vh;
+min-height: 500px;
+padding-left: 5px;
+padding-right: 5px;
 }

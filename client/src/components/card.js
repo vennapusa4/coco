@@ -44,7 +44,7 @@ function renercontent(data) {
       
     </div>
     <div  className="cardlogo_R">
-        <img style={{ width: "100%" }} src={user}></img>
+        <img style={{ height:"48px" }} src={user}></img>
     </div>
     </div>)
         }
