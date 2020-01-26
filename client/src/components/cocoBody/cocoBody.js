@@ -9,8 +9,18 @@ import "./cocoBody.css";
 class  CoCoBody extends React.Component {
     componentDidUpdate()
     {
-        window.scrollTo(0,document.body.scrollHeight);
+         
+       if(this.props.loading){
+        window.scrollTo(0, document.body.scrollHeight-10);
+      }
+      else if (this.forScroll.current) {
+        window.scrollTo(0,this.forScroll.current.offsetTop-10);
+      }  
     }
+    constructor(props) {
+        super(props);
+        this.forScroll = React.createRef();
+      }
     // componentDidMount(){
     //     $(".cocoBody").fadeOut();
     //     setTimeout(()=>{ 
@@ -61,7 +71,9 @@ var data=this.props.messages.data;
                     <Loader />
                 </React.Fragment> )   
             }
-            else return (<Card message={element.message} date={element.date} /> )   
+            else return (<div  ref={this.forScroll}>
+                <Card ref="forScroll" message={element.message} date={element.date} />
+                 </div>)   
          
         }
       

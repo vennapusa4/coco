@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 50px;
 }
 
 .App-logo {
@@ -75,9 +76,7 @@
 .cardSection:first-child{
   margin-top: 0px;
 }
-.cardSection:last-child{
-  padding-bottom: 35px;
-}
+
 
 .cardlogo{
   width: 3.5%;
@@ -158,7 +157,7 @@
   }
 }
 .cocoBody{
-min-height: 500px;
+min-height: 80vh;
 padding-left: 5px;
 padding-right: 5px;
 }

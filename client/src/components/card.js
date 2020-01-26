@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import {postMessage} from ".././actions"
 function renercontent(data) {
 
-    console.log(data);
-  
+
     var a=  data.map(element=>{
         if(element.message==""){
             return null;

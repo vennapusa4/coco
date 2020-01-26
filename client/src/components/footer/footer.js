@@ -8,7 +8,15 @@ class  Footer extends React.Component {
   recognition = new window.SpeechRecognition();
   styles="cocoMicBlue";
   
-   
+   sendfrom=()=>{
+    if (this.state.userMsg!="")
+    {
+    let today = new Date();
+    let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
+    this.props.postMessage(this.state.userMsg,date);
+    this.setState({userMsg:""});
+    }
+   }
   send=(e)=> {
     e.preventDefault();
   if (this.state.userMsg!="" && e.keyCode === 13) {
@@ -27,14 +35,12 @@ class  Footer extends React.Component {
     this.refs.inputbox.attributes.placeholder.value="I am listening speak now";
 
   }
-  this.recognition.onaudioend = (event)=> {
-    console.log('Audio capturing started');
+  this.recognition.onaudioend = ()=> {
     this.styles="cocoMicRed";
     this.refs.mic.className="cocoMicBlue";
     this.refs.inputbox.attributes.placeholder.value="Type a message"
   }
-  this.recognition.onspeechstart = (event)=>{
-    console.log('Speech has been detected');
+  this.recognition.onspeechstart = ()=>{
     this.styles="cocoMicRed";
   }
   this.recognition.onstart =  () =>{
@@ -45,9 +51,7 @@ class  Footer extends React.Component {
    };
 
 
-  this.recognition.onspeechend = (event)=> {
-    console.log('Speech has been ened');
-    this.styles="cocoMicBlue"
+  this.recognition.onspeechend = ()=> {
   }
   this.recognition.onresult = (event)=> {
   
@@ -74,7 +78,7 @@ startcono=()=>{
               <input ref="inputbox" onKeyUp={this.send} onChange={(e)=> this.setState({userMsg:e.target.value})} value={this.state.userMsg}   className="cocoInput" placeholder="Type a message"/>
               <div ref="mic" className="cocoMicBlue" onClick={()=>{this.startcono()}}>       
               </div>
-              <div className="cocoSend" onClick={()=>{this.startcono()}}>       
+              <div className="cocoSend" onClick={this.sendfrom}>       
               </div>
               </div>
             </div>

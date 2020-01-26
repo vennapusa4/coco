@@ -17,7 +17,6 @@ var request = app.textRequest(data, {
 });
 request.on('response', (response)=> {
   dispatch({ type: "postMessage", payload: {message: response.result.fulfillment.speech,from:true,date:date,options:["aahsdj","hshdhds","hfjbf"]} });
-    console.log(response.result.fulfillment.speech);
     dispatch({ type: "loading", payload: false });
 });
 request.on('error', function(error) {
