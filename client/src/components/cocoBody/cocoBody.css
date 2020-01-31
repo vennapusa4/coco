@@ -1,0 +1,14 @@
+.headerIcon{
+    margin: auto;
+    width: 272px;
+    padding-top:10px;
+ }
+
+ .logoWidth{  
+    width: 40%;
+ }
+ @media screen and (max-width: 560px) {
+    .logoWidth{  
+        width: 25%;
+     }
+  }

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 50px;
 }
 
 .App-logo {
@@ -73,25 +74,24 @@
   margin-top: 0px;
 }
 .cardSection:first-child{
-  margin-top: 5px;
+  margin-top: 0px;
 }
+
+
 .cardlogo{
   width: 3.5%;
-    margin: .1rem 0.2rem 1rem 0;
 }
-.cardlogo_R{
-  width: 4%;
-    /* margin: .1rem 0rem 1rem 0.2rem; */
-}
+
 .card-panel {
   
   padding: 10px !important;
   border-radius: 10px !important;
-  background-color: #70C6CB !important;
+  background-color: #417bdc2e !important;
   margin: .1rem 0 .1rem 0 !important;
   line-height: 18px;
   text-align: left;
   width: fit-content;
+  border: 0.3px solid #19194ca1;
 }
 .card-panel_R {
   text-align: right;
@@ -140,4 +140,28 @@
   top:85% !important;
   right:5% !important;
   color: #61dafb;
+}
+
+.cocoHere:first-child{
+  padding-top: 100px;
+  color: white;
+}
+.cocoHere{
+  color: white;
+  word-wrap: break-word;
+  font-size: 3.5rem;
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+}
+@media screen and (max-width: 480px) {
+  .cocoHere{
+      font-size: 2.5rem !important;
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+}
+.cocoBody{
+min-height: 80vh;
+padding-left: 5px;
+padding-right: 5px;
 }

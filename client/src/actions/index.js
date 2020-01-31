@@ -1,28 +1,22 @@
-import store from "../index"
-const apiai = require('apiai');
-const app = apiai("af5a5dee9a84473bb83898476d40e8ef");
-
-export const postMessage =  (data,date)=>  {
-  var data1={message: data,from:false,date:date};
-  if(store)
-  store.dispatch(getMessage(data))
-  return({ type: "postMessage", payload: data1 });
+import store from "../index";
+import axios from 'axios';
+export const postMessage =  (data,date)=>async(dispatch)=>  {
+  var data1={message: data,from:false,date:date,options:[]};
+  await dispatch({ type: "loading", payload: true });
+  await dispatch({ type: "postMessage", payload: data1 });
+  await dispatch(getMessage(data))
+  
 };
-export const getMessage = (data)=>async (dispatch) => {
+export const setuserMessage =  (data)=>{
+  return ({ type: "setuserMessage", payload: data });
+}
+export const getMessage = (datat)=>async (dispatch) => {
   let today = new Date();
   let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
-var request = app.textRequest(data, {    
-  sessionId: '123456'
-});
-request.on('response', (response)=> {
-  dispatch({ type: "postMessage", payload: {message: response.result.fulfillment.speech,from:true,date:date} });
-    console.log(response.result.fulfillment.speech);
-});
-request.on('error', function(error) {
-    console.log(error);
-});
-request.end();
- 
+  const res =await  axios.post('/api/postmsg', {data:datat});
+  const {data}=res;
+  dispatch({ type: "postMessage", payload: {message: data.text,from:true,date:date,options:data.options} });
+  dispatch({ type: "loading", payload: false });
 };
 
 

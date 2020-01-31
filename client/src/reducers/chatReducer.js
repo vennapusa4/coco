@@ -1,12 +1,35 @@
+import { getDate } from "../utilities/getDate";
+const date=getDate();
+
 const initialState = {
-    data:[{message: "Hello there! How can I help you?",from:true,date:"13-10-16"}
-]}
-export default function(state = initialState, action) {
+    data:[{message: "Hi, CoCo here...",from:true,date:date,options:[
+     "What can you do?","Schedule a Delivery","Track Order"
+    ]},] 
+}
+export const postMessageR= function(state = initialState, action) {
   switch (action.type) {
     case "postMessage":
       return   {...state,data:[...state.data,action.payload] }||false
     default:
       return state;
   }
+}
+export const setLoadingR= function(state = false, action) {
+  if (action.type=="loading") {
+    return action.payload;
+  }
+  else{
+    return state
+  }
+     
+}
+export const setuserMessageR= function(state = "", action) {
+  if (action.type=="setuserMessage") {
+    return action.payload;
+  }
+  else{
+    return state
+  }
+     
 }
 

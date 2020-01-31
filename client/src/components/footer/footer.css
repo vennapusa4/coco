@@ -1,0 +1,56 @@
+.cocoSearchBox{
+border-radius: 40px;
+border: 2px solid #010113a1;
+height: 40px;
+position: fixed;
+width: 100%;
+bottom: 0;
+background-color: white;
+
+}
+.cocoInput{
+    border: none !important;
+    height: 99% !important;
+    padding-left: 10px !important;
+    width: 94% !important;
+    color: #3B78DB;
+}
+@media screen and (max-width: 720px) {
+    .cocoInput{  
+        width: 85% !important;
+     }
+  }
+
+.cocoMicBlue,.cocoSend{
+    background-image: url("../../images/micBlue.jfif");
+    background-size: cover;
+    float: right;
+    /* margin-top: 8px !important; */
+    height: 30px;
+    width: 30px;
+    /* padding-right: 17px; */
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.cocoSend{
+    background-image: url("../../images/send.jfif");
+    display: none;
+}
+.cocoMicRed{
+    background-image: url("../../images/micred.jfif");
+    background-size: cover;
+    float: right;
+    /* margin-top: 8px !important; */
+    height: 28px;
+    width: 28px;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+@media screen and (max-width: 720px) {
+    .cocoMicBlue, .cocoMicRed{
+        display: none;
+    }
+    .cocoSend{
+        display: block;
+    }
+    }

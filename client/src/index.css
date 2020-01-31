@@ -1,11 +1,25 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   margin: 0px;
   padding: 0px;
-  color: blue;
+  color: black;
+  font-family: Ubuntu;
 }
-body,html{
-  height: 100%;
+:root {
+  --bottom: coral;  
+}
+body{
+  margin: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("./images/blue.jpg");
+  background-image: url("./images/nature5.jpg");
+  background-attachment: fixed;
+  overflow-y: auto !important;
+}
+.nomargin{
+  margin:0px
 }
 .container_{
   background-color: #0E0E0E;
@@ -59,9 +73,19 @@ body,html{
   text-align: center;
   padding-top: 58px;
 }
+.contentbuttons:last-child{
+  text-align: center;
+  padding-bottom: 58px;
+}
 .iconsize{
   font-size: 3rem;
   color: #5D6263;
+
+  position: absolute;
+  font-size: 2rem;
+  top: -1px;
+  right: 1px;
+  cursor: pointer;
 }
 .btn_content{
   background: #FFF;
@@ -73,6 +97,24 @@ body,html{
     border-radius: 40px;
     min-width: 245px;
     margin-left: 20px;
+}
+.btn_content{
+  background: #417bdc2e;
+  border: 2px solid;
+  font-size: 25px;
+  color: #ffffff;
+  padding: 14px 20px 14px 20px;
+  border: 2px solid #19194ca1;
+  border-radius: 40px;
+  min-width: 245px;
+  margin-left: 20px;
+  margin-top: 10px;
+  box-shadow: 0 3px 2px 0 rgba(21, 3, 3, 0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+@media screen and (max-width: 560px) {
+  .btn_content{
+    margin-left: 0px;
+  }
 }
 .contentsearch{
   position: sticky;
@@ -106,4 +148,13 @@ body,html{
 button:focus {
   outline: none;
   background-color: rgba(247, 247, 249, 0.3) !important;
+}
+.nomargin{
+  margin:0px
+}
+.whitecolor{
+ color: white ;
+}
+.whiteBk{
+  background-color: white !important;
 }
