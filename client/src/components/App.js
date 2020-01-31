@@ -7,12 +7,12 @@ import "./App.css";
 import $ from "jquery"
 import Card from "./card";
 import CoCoBody from "./cocoBody/cocoBody";
+import Maps from "./map/map";
+import Modal from './map/map';
+import { connect } from 'react-redux';
 class  App extends React.Component {
   state = { userMsg: "" };
-  updatestate=(userMsg)=>{
-    alert(1)
-    this.setState({userMsg})
-   }
+
     componentDidMount(){
         $(".cocofade").fadeOut();
         setTimeout(()=>{ 
@@ -20,7 +20,7 @@ class  App extends React.Component {
           //this.refs.rightSlider.style.left="-100%";
           //this.refs.rightSlider.style.transition="2.5s";
         }, 2000);
-       
+      
       }
   render(){
     if ('SpeechRecognition' in window) {
@@ -35,11 +35,15 @@ class  App extends React.Component {
         <CoCoBody/>
         <Footer userMsg={this.state.userMsg}/>
         </div>    
-        
+       
       </div>
     );
   }
  
 }
+function mapStateToProps(state) {
 
-export default  App;
+  return state;
+}
+export default connect(mapStateToProps,{})(App);; ;
+

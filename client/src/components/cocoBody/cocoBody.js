@@ -1,22 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {postMessage} from "../../actions";
+import {postMessage,setuserMessage} from "../../actions";
 import Loader from "../loader/loader";
 import Card from "../card/card";
 import coco from "../../images/logo.png";
 import "./cocoBody.css";
-
+import Maps from "../map/map";
+import Modal from '../map/map';
 class  CoCoBody extends React.Component {
-    componentDidUpdate()
-    {
-         
-       if(this.props.loading){
-        window.scrollTo(0, document.body.scrollHeight-10);
-      }
-      else if (this.forScroll.current) {
-        window.scrollTo(0,this.forScroll.current.offsetTop-10);
-      }  
+   state={showmap:false}
+    
+    componentDidUpdate(previousProps, previousState) {
+        if(this.props.loading){
+            window.scrollTo(0, document.body.scrollHeight-10);
+          }
+          else if (this.forScroll.current) {
+            window.scrollTo(0,this.forScroll.current.offsetTop-10);
+          } 
+        if (previousState.showmap == true) {
+            this.setState({showmap:false})
+        }
     }
+
     constructor(props) {
         super(props);
         this.forScroll = React.createRef();
@@ -40,28 +45,19 @@ var data=this.props.messages.data;
         }
         else if (element.from) {
             return(
-                
+              
                 <div className="cocoBody">
-                        <div className="headerIcon">
-                  <img src={coco} className="logoWidth"/>
-              </div>
-                     <h1 className="nomargin cocoHere">
-                     {element.message}
-            </h1>
-            <div className="contentbuttons">
-                <button className="btn_content" onClick={(e) => this.sendonbnclick("What can you do?")}>
-                    What can you do?
-           </button>
-                <button className="btn_content" onClick={(e) => this.sendonbnclick("Schedule a Delivery")}>
-                Schedule a Delivery
-           </button>
-                <button className="btn_content" onClick={(e) => this.sendonbnclick("Track Order")}>
-                Track Order
-           </button>
-           </div>
-           
-          </div>
-            
+
+                    <div className="headerIcon">
+                        <img src={coco} className="logoWidth" />
+                    </div>
+                    <h1 dangerouslySetInnerHTML={{ __html: element.message }} className="nomargin cocoHere">
+
+                    </h1>
+                    <div className="contentbuttons">
+                        {this.renderoptions(element.options)}
+                    </div>
+                </div>         
             )
         }
         else {
@@ -82,16 +78,52 @@ var data=this.props.messages.data;
 
         
     }
+    renderoptions=(options)=>{
+    
+    var a=  options.map((element,i)=>{
+        if(element==""){
+            return null;
+        }
+        else{
+            return  <React.Fragment>
+            <button className="btn_content" onClick={(e) => this.sendonbnclick(element)}>
+            {element}
+            </button>
+      
+       </React.Fragment>
+        }
+    
+
+    })
+    return a;
+}
     sendonbnclick=(userMsg)=>{
-        let today = new Date();
-        let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
-        //this.props.setMessage(userMsg)
-        this.props.postMessage(userMsg,date);
+       
+        if (userMsg=="Pick up the location") {
+            this.setState({showmap:true})
+        }
+        
+        else{
+          let today = new Date();
+          let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
+            if (userMsg=="Current date and time") {
+                userMsg =date
+            }
+            this.setState({showmap:false})
+            //this.props.setMessage(userMsg)
+            this.props.postMessage(userMsg,date);
+            this.props.setuserMessage("")
+        }
+       
        }
     render(){
         return (
             <React.Fragment> 
                 {this.renercontent()} 
+                {
+                  this.state.showmap?<Modal></Modal>:""
+                }
+                
              </React.Fragment>
                        
            
@@ -103,4 +135,4 @@ function mapStateToProps(state) {
 
     return state;
   }
-export default connect(mapStateToProps,{postMessage})(CoCoBody);; ;
+export default connect(mapStateToProps,{postMessage,setuserMessage})(CoCoBody);; ;

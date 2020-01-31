@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import {postMessageR,setLoadingR} from "./chatReducer";
+import {postMessageR,setLoadingR,setuserMessageR} from "./chatReducer";
 export default combineReducers({
   messages:postMessageR,
-  loading:setLoadingR
+  loading:setLoadingR,
+userMsg:setuserMessageR
   });
   

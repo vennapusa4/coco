@@ -14,6 +14,9 @@ body{
   background-size: cover;
   min-height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("./images/blue.jpg");
+  background-image: url("./images/nature5.jpg");
+  background-attachment: fixed;
+  overflow-y: auto !important;
 }
 .nomargin{
   margin:0px
@@ -77,6 +80,12 @@ body{
 .iconsize{
   font-size: 3rem;
   color: #5D6263;
+
+  position: absolute;
+  font-size: 2rem;
+  top: -1px;
+  right: 1px;
+  cursor: pointer;
 }
 .btn_content{
   background: #FFF;

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./footer.css";
 import { connect } from 'react-redux';
-import {postMessage} from "../../actions"
+import {postMessage,setuserMessage} from "../../actions"
 var click=1;
 class  Footer extends React.Component {
   state = { userMsg: "" };
@@ -14,7 +14,7 @@ class  Footer extends React.Component {
     let today = new Date();
     let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
     this.props.postMessage(this.state.userMsg,date);
-    this.setState({userMsg:""});
+    this.props.setuserMessage("");
     }
    }
   send=(e)=> {
@@ -24,6 +24,7 @@ class  Footer extends React.Component {
       let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
       this.props.postMessage(this.state.userMsg,date);
       this.setState({userMsg:""});
+      this.props.setuserMessage("");
    
   }
  }
@@ -73,7 +74,7 @@ startcono=()=>{
 
     render(){
         return (
-            <div className="cocoFooter" >
+            <div className="cocoFooter" style={{marginTop:"40px"}}>
               <div className="cocoSearchBox">
               <input ref="inputbox" onKeyUp={this.send} onChange={(e)=> this.setState({userMsg:e.target.value})} value={this.state.userMsg}   className="cocoInput" placeholder="Type a message"/>
               <div ref="mic" className="cocoMicBlue" onClick={()=>{this.startcono()}}>       
@@ -86,4 +87,8 @@ startcono=()=>{
     }
  
 }
-export default  connect(null,{postMessage})(Footer);
+function mapStateToProps(state) {
+
+  return state;
+}
+export default  connect(mapStateToProps,{postMessage,setuserMessage})(Footer);

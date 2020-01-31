@@ -23,4 +23,13 @@ export const setLoadingR= function(state = false, action) {
   }
      
 }
+export const setuserMessageR= function(state = "", action) {
+  if (action.type=="setuserMessage") {
+    return action.payload;
+  }
+  else{
+    return state
+  }
+     
+}
 

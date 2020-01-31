@@ -1,0 +1,26 @@
+
+    .modal-body {
+        background-color: white;
+        margin: auto;
+        height: 30%;
+        width: 30%;
+      }
+  
+      .modal {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        background-color: grey;
+        left: 0;
+        top: 0;
+        z-index: 999999999999999;
+      }
+  
+      .positioned {
+        position: relative;
+        z-index: 0;
+      }
+      .waves-effect
+      {
+        z-index: 0 !important;
+      }
