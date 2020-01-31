@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
     });
   });
 
-passport.use(new googleStrategy({
+  passport.use(new googleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     callbackURL: "http://localhost:3000/outh/google/callback",
