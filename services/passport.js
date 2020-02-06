@@ -4,23 +4,24 @@ const keys = require("../config/keys")
 
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+  console.log(33);
+  
+    done(null, user);
   });
   
-  passport.deserializeUser((id, done) => {   
-    User.findById(id).then(user => {
+  passport.deserializeUser((user, done) => {   
+    console.log(33);
       done(null, user);
-    });
   });
 
   passport.use(new googleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: "http://localhost:3000/outh/google/callback",
+    callbackURL: 'http://localhost:3000/auth/google/callback',
     proxy:true,
     passReqToCallback   : true
-}, (a, r, p,d) => {
-       d(null,p);
+},async (request, accessToken, refreshToken, profile, done) => {
+       done(null,profile);// it tells user authenticated
 }));//arg tells how to uthrnticate
 
 //AIzaSyBew2o1DvFbvLAjrzMjOQpBRQKkOApTtQU

@@ -1,10 +1,11 @@
 const express= require("express");
 const passport=require("passport");
 module.exports=app=>{
-    app.get("/api/oauth",passport.authenticate("google",{
+    app.get("/auth/google",passport.authenticate("google",{
         scope:["profile","email"]
     }))
-    app.get("/outh/google/callback",passport.authenticate("google"),(req, res) => {
+  
+    app.get("/auth/google/callback",passport.authenticate("google"),(req, res) => {
     console.log(55);
     
       res.redirect('/');

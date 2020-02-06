@@ -7,6 +7,11 @@ export const postMessage =  (data,date)=>async(dispatch)=>  {
   await dispatch(getMessage(data))
   
 };
+export const fetchUser = () => async dispatch => {
+  const res = await axios.get('/api/current_user');
+
+  dispatch({ type: "fetchUser", payload: res.data });
+};
 export const setuserMessage =  (data)=>{
   return ({ type: "setuserMessage", payload: data });
 }
