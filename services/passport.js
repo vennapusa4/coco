@@ -5,7 +5,7 @@ const keys = require("../config/keys")
 
 passport.serializeUser((user, done) => {
   console.log(33);
-  
+  // sets the cookie and set req.user
     done(null, user);
   });
   

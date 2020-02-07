@@ -4,12 +4,19 @@ const date=getDate();
 const initialState = {
     data:[{message: "Hi, CoCo here...",from:true,date:date,options:[
      "What can you do?","Schedule a Delivery","Track Order"
-    ]},] 
+    ],cardDetails:{}},] 
 }
 export const postMessageR= function(state = initialState, action) {
   switch (action.type) {
     case "postMessage":
-      return   {...state,data:[...state.data,action.payload] }||false
+      return   {...state,data:[...state.data,action.payload] }||false;
+      case "fetchUser":
+        {
+          var copy={...state}
+          if(action.payload)
+          copy.data[0].message="Hi, "+action.payload.name.givenName+ " CoCo here..."
+        }
+      return  {...copy }||false;
     default:
       return state;
   }

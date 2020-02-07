@@ -52,7 +52,7 @@ module.exports = (text) => {
         text=text;
         options=optionsdata[0];
     }
-    return {text,options};
+    return {text,options,cardDetails:{}};
 }
 // 597310521395-a33m2kqcfq4lsooa2cfpnntsln70ak0i.apps.googleusercontent.com
 // md_0EMcsId2pJ5Kfr9_mOfpL

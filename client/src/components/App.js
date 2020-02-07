@@ -11,7 +11,7 @@ import Maps from "./map/map";
 import Modal from './map/map';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import "../css/buttons.scss"
 class  App extends React.Component {
   state = { userMsg: "" };
  logout=()=>{

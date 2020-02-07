@@ -54,6 +54,12 @@ var data=this.props.messages.data;
                     <h1 dangerouslySetInnerHTML={{ __html: element.message }} className="nomargin cocoHere">
 
                     </h1>
+                    <div>
+                        {
+                             this.rendercardS(element.cardDetails) 
+                        }
+                    
+                    </div>
                     <div className="contentbuttons">
                         {this.renderoptions(element.options)}
                     </div>
@@ -78,6 +84,34 @@ var data=this.props.messages.data;
 
         
     }
+
+    rendercardS=(data)=>{
+        if (data.id) {
+            return <div className="card-panel teal card_B">
+                        { 
+                              this.rendercard(data)   
+                            }
+                    </div>
+        }
+        }
+  rendercard=(data)=>{
+      if (data.id) {
+        return Object.keys(data).map((element,i)=>{
+            return <React.Fragment> 
+                <div>
+          <p className="cardDetails">
+          {element}
+          </p>
+          <p className="cardDetails cardDetails_L">
+          {data[element]}
+          </p>
+          </div>
+     
+        </React.Fragment>
+        })
+      }
+  
+}
     renderoptions=(options)=>{
     
     var a=  options.map((element,i)=>{
@@ -89,7 +123,7 @@ var data=this.props.messages.data;
             <button className="btn_content" onClick={(e) => this.sendonbnclick(element)}>
             {element}
             </button>
-      
+  
        </React.Fragment>
         }
     

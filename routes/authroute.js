@@ -7,8 +7,15 @@ module.exports=app=>{
   
     app.get("/auth/google/callback",passport.authenticate("google"),(req, res) => {
     console.log(55);
-    
-      res.redirect('/');
+    req.session.deliverydetails=[];
+    req.session.deliverydetail={
+      id:"",
+      pickup:"",
+      dropoff:"",
+      items:"",
+      cost:"",
+    };
+    res.redirect('/');
     });
     app.get('/api/current_user', (req, res) => {
         res.send(req.user);
