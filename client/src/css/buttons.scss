@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@mixin bggrad( $c1, $c2, $angle: 155 ) {
+  background: linear-gradient( #{$angle}deg, $c1 0%, $c2 100%);
+} 
+
+@mixin borgrad( $c1, $c2, $angle: 155 ) {
+  border-image: linear-gradient( #{$angle}deg, $c1 0%, $c2 100%) 1 round;
+} 
+
+@mixin someColor( $c1, $c2 ) {
+  
+  @include borgrad( $c1, $c2, 155 );
+  @include bggrad( $c1, $c2, 155 );
+  
+  &:hover {
+    box-shadow: 
+      0 0 0px 1px rgba(255,255,255,0.5),
+      2px 2px 6px rgba(red($c2), green($c2), blue($c2),0.4),
+      -2px -2px 6px rgba(red($c1), green($c1), blue($c1),0.4);
+  }
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+}
+
+
+
+
+$purple: #fb83fa;
+$aqua: #31bcb8;
+
+$red: #fc5c3c;
+$orange: #ffb638;
+
+$green: #AAFFA9;
+$cyan: #06e5de;
+
+$la: #F0C27B;
+$tokyo: #ad1ba3;
+
+
+.boxy {
+  
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.5em;
+  color: rgba(255,255,255,0);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.6em 1.6em;
+  margin: 0.6em;
+  border-style: solid;
+  border-width: 1px;
+  transition: all 0.2s ease;
+  
+  @include someColor( $purple, $aqua );
+  
+  &:hover {
+    
+    color: rgba(255, 255, 255,0.1);
+    text-shadow: 0 0 1px rgba(255, 255, 255,0.4);
+    
+  }
+  
+  &.red {
+    @include someColor( $red, $orange );
+  }
+  
+  &.green {
+    @include someColor( $cyan, $green );
+  }
+  
+  &.la {
+    
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    font-size: 3em;
+    padding: 0.3em;
+    border-width: 2px;
+    display: block;
+    width: 70%;
+    margin: 0.6em auto;
+    @include someColor( $la, $tokyo );
+  }
+  
+}
+
+
+
+
