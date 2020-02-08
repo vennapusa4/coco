@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding-top: 50px;
+
 }
 
 .App-logo {
@@ -162,6 +162,29 @@
 }
 .cocoBody{
 min-height: 80vh;
+padding-top: 50px;
 padding-left: 5px;
 padding-right: 5px;
+}
+.navText{
+  vertical-align: top;
+  font-family: Ubuntu;
+  font-weight: 600;
+  color: white;
+  font-size: 32px;
+  POSITION: RELATIVE;
+  TOP: 10PX;
+  RIGHT: 10PX;
+}
+nav{
+  background-color: #304d67d1;
+  z-index: 999999;
+}
+.navIcon{
+  POSITION: RELATIVE;
+  TOP: -10PX;
+  RIGHT: -10PX;
+}
+nav ul a {
+  font-size: 16px;
 }

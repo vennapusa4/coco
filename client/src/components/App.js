@@ -12,6 +12,7 @@ import Modal from './map/map';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 import "../css/buttons.scss"
+import png from "../images/PAM.png";
 class  App extends React.Component {
   state = { userMsg: "" };
  logout=()=>{
@@ -34,11 +35,25 @@ class  App extends React.Component {
     }
     return (
       <div className="App">
+             <nav>
+    <div className="nav-wrapper">
+      <a href="#" className="brand-logo center">
+      <div className="navIcon"><img src={png} style={{height:"85px"}} />
+      <span className="navText">Packers and Movers</span>
+      </div>
+      </a>
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
+      {this.props.user?
+        <li><a href="/api/logout" >   Sign Out</a></li>:
+        <li><a  href="/auth/google" >   Sign In</a></li>
+      }
+      </ul>
+    </div>
+  </nav>
          {this.props.user?
          <div className="cocofade">
-         <a className="signout"  href="/api/logout">
-               Sign Out
-         </a>
+        
+    
          <CoCoBody/>
          <Footer userMsg={this.state.userMsg}/>
          </div> :

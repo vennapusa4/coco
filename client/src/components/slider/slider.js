@@ -29,10 +29,10 @@ class  Slider extends React.Component {
                 This is CoCo, your sweet little friend. Login to chat more with more <span>&#128515;</span><br/>
                 </h2>
 
-                {this.props.user?null:
+                {//this.props.user?null:
                 
-                <a className="btn_content" style={{marginTop:"80px"}} href="/auth/google">
-                Sign in Google</a>
+                // <a className="btn_content" style={{marginTop:"80px"}} href="/auth/google">
+                // Sign in Google</a>
                 }
              
               </div>         
