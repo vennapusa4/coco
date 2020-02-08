@@ -30,6 +30,7 @@ body{
     background-position: center;
     background-image: url("../src/images/highway-m.jpg");
      background-attachment: scroll;
+     background-size: 280% auto;
   }
  
  }
