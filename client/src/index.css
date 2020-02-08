@@ -13,6 +13,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+  background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("./images/blue.jpg");
   background-image: url("../src/images/highway.jpg");
   background-attachment: fixed;
@@ -23,6 +24,7 @@ body{
 @media (max-width: 991px) {
 
   .body{
+    background-position: center;
     background-image: url("../src/images/highway-m.jpg");
      background-attachment: scroll;
   }
