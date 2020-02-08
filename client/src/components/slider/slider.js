@@ -25,11 +25,13 @@ class  Slider extends React.Component {
                   <img src={coco} style={{width:"50%"}}/>
               </div>
               <div>
-                <h1 className="nomargin homeText">Conversational App</h1>
+                <h2 className="nomargin homeText">
+                This is CoCo, your sweet little friend. Login to chat more with more <span>&#128515;</span><br/>
+                </h2>
 
                 {this.props.user?null:
                 
-                <a className="btn_content" style={{marginTop:"20px"}} href="/auth/google">
+                <a className="btn_content" style={{marginTop:"80px"}} href="/auth/google">
                 Sign in Google</a>
                 }
              

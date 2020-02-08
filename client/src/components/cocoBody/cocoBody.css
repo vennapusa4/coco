@@ -9,14 +9,13 @@
  }
  .cardDetails{
    text-align: center;
-   font-size: 16px;
+   font-size: 17px;
    color: white;
    display: inline;
    font-weight: 600;
  
  }
  .cardDetails_L{
-   padding-left: 100px;
    text-align: right !important;
    float: right;
  }
@@ -32,7 +31,20 @@
     border-radius: 0px !important;
     margin: auto !important;
     margin-top: 10px !important;
-    background-color: #417bdc63 !important;
+    width: 100%;
+    /* box-sizing: border-box; */
+    flex-shrink: 26;
+    display: flex;
+    flex-shrink: 0;
+     height: 200px;
+    width: 25%;
+    justify-content: space-between;
+    background-size: 100% 100%;
+    background-color: #09234ebf !important;
+    flex-wrap: wrap;
+    }
+ .cardDetails_P{
+ width: 100%;
  }
  @media screen and (max-width: 560px) {
     .logoWidth{  

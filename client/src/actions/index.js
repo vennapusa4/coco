@@ -20,7 +20,6 @@ export const getMessage = (datat)=>async (dispatch) => {
   let date = today.getDate() + "-" + parseInt(today.getMonth() + 1) + "-" + today.getFullYear();
   const res =await  axios.post('/api/postmsg', {data:datat});
   const {data}=res;
-  debugger;
   dispatch({ type: "postMessage", payload: {message: data.text,from:true,date:date,options:data.options,cardDetails:data.cardDetails} });
   dispatch({ type: "loading", payload: false });
 };

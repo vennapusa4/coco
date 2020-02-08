@@ -9,11 +9,11 @@ module.exports=app=>{
     console.log(55);
     req.session.deliverydetails=[];
     req.session.deliverydetail={
-      id:"",
-      pickup:"",
-      dropoff:"",
-      items:"",
-      cost:"",
+      ID:"",
+      Pickup:"",
+      Dropoff:"",
+      Items:"",
+      Cost:"",
     };
     res.redirect('/');
     });

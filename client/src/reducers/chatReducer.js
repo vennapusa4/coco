@@ -2,8 +2,9 @@ import { getDate } from "../utilities/getDate";
 const date=getDate();
 
 const initialState = {
-    data:[{message: "Hi, CoCo here...",from:true,date:date,options:[
-     "What can you do?","Schedule a Delivery","Track Order"
+    data:[{message: "Hi, I love to help you with goods delivery. How can we start?",from:true,date:date,options:[
+     "What can you do?","Schedule a Delivery","Track an Order", "Have a Question", "About Movers and Packers", "Contact Us "
+
     ],cardDetails:{}},] 
 }
 export const postMessageR= function(state = initialState, action) {
@@ -14,7 +15,7 @@ export const postMessageR= function(state = initialState, action) {
         {
           var copy={...state}
           if(action.payload)
-          copy.data[0].message="Hi, "+action.payload.name.givenName+ " CoCo here..."
+          copy.data[0].message="Hi, "+action.payload.name.givenName+ " I love to help you with goods delivery. How can we start?"
         }
       return  {...copy }||false;
     default:

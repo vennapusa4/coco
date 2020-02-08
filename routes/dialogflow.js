@@ -14,7 +14,7 @@ module.exports=eapp=>{
             req.session.panswer=req.body.data;
             req.session.question=response.result.fulfillment.speech;  
             if(response.result.fulfillment.speech.includes("tracking ID is") ) 
-            req.session.deliverydetail.id="SR 890891";
+            req.session.deliverydetail.ID="SR 890891";
             if (req.body.data.includes("890891")) {
                 data.cardDetails=req.session.deliverydetail;
                 res.send(data);

@@ -43,7 +43,6 @@ this.open_modal();
   {
     var geocoder = new window.google.maps.Geocoder();
     if (navigator.geolocation) {
-      debugger;
       navigator.geolocation.getCurrentPosition((pos)=> {
         var mapOptions={
           center: { lat:  pos.coords.latitude, lng:   pos.coords.longitude},
@@ -56,7 +55,6 @@ this.open_modal();
         })
           var me = new window.google.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
           myloc.setPosition(me);
-          debugger;
           map.addListener('click', (e) =>{
             window.aa=e.latLng;
             var me = new window.google.maps.LatLng(e.latLng.lat(),e.latLng.lng());

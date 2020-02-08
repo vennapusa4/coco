@@ -86,7 +86,7 @@ var data=this.props.messages.data;
     }
 
     rendercardS=(data)=>{
-        if (data.id) {
+        if (data.ID) {
             return <div className="card-panel teal card_B">
                         { 
                               this.rendercard(data)   
@@ -95,10 +95,10 @@ var data=this.props.messages.data;
         }
         }
   rendercard=(data)=>{
-      if (data.id) {
+      if (data.ID) {
         return Object.keys(data).map((element,i)=>{
             return <React.Fragment> 
-                <div>
+                <div className="cardDetails_P">
           <p className="cardDetails">
           {element}
           </p>

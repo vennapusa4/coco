@@ -48,10 +48,16 @@ module.exports = (text) => {
         text=text;
         var options=optionsdata[7];
     }
+   else if (text=="Yes, I am always there to answer your question.") {
+    text=text;
+    var options=optionsdata[8];
+    }
+    
     else {
         text=text;
         options=optionsdata[0];
     }
+
     return {text,options,cardDetails:{}};
 }
 // 597310521395-a33m2kqcfq4lsooa2cfpnntsln70ak0i.apps.googleusercontent.com
