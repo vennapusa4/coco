@@ -209,3 +209,12 @@ nav .sidenav-trigger {
     left: -10px;
   }
 }
+@media screen and (max-width: 480px) {
+  .navText{
+    font-size: 1.8rem;
+
+  }
+  .navIcon{
+    left: -10px;
+  }
+}

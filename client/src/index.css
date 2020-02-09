@@ -142,11 +142,7 @@ body{
   
 }
 
-@media screen and (max-width: 560px) {
-  .btn_content{
-    margin-left: 0px;
-  }
-}
+
 .contentsearch{
   position: sticky;
   bottom: 0px;
