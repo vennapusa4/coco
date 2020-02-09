@@ -27,7 +27,14 @@ class  App extends React.Component {
         }, 1000);
         document.addEventListener('DOMContentLoaded', function() {
           var elems = document.querySelectorAll('.sidenav');
-          var instances = window.M.Sidenav.init(elems, {});
+          var instances = window.M.Sidenav.init(elems, {
+            onOpenStart: function () {
+              $(".AppContent").addClass("cocoAnimate");
+          },
+          onCloseEnd: function () {
+            $(".AppContent").removeClass("cocoAnimate");
+          }
+          });
         });
       
       
@@ -42,7 +49,8 @@ class  App extends React.Component {
       // speech recognition API not supported
     }
     return (
-      <div className="App">
+      <div >
+        <div className="App">
              <nav>
     <div className="nav-wrapper">
      
@@ -60,12 +68,6 @@ class  App extends React.Component {
   </nav>
  
 
-  <ul class="sidenav" id="mobile-demo">
-  {this.props.user?
-        <li><a href="/api/logout" >   Sign Out</a></li>:
-        <li><a  href="/auth/google" >   Sign In</a></li>
-      }
-  </ul>
          {this.props.user?
          <div className="cocofade">
         
@@ -78,11 +80,17 @@ class  App extends React.Component {
          }
       
            
-       
+      </div>
+      
+  <ul class="sidenav" id="mobile-demo">
+  {this.props.user?
+        <li><a href="/api/logout" >   Sign Out</a></li>:
+        <li><a  href="/auth/google" >   Sign In</a></li>
+      }
+  </ul>
       </div>
     );
   }
- 
 }
 function mapStateToProps(state) {
 

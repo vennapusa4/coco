@@ -199,7 +199,14 @@ nav .sidenav-trigger {
   margin-left: 10px;
 }
 .sidenav {
-  z-index: 10000;
+  z-index: 99999999;
+  width: 50%;
+}
+.cocoAnimate{
+  transform: translate(33%) rotateY(-45deg) rotateX(0);
+  perspective: 1000px;
+  /* background: transparent; */
+  transition: transform 0.6s;
 }
 @media screen and (max-width: 991px) {
   .navText{
