@@ -71,7 +71,7 @@ body{
 }
 .contentbg{
   padding-top: 3%;
-  background-image: url("./images/water.jpg");
+  /* background-image: url("./images/water.jpg"); */
   height: 100%;
   padding-bottom: 3%;
 }
@@ -131,7 +131,7 @@ body{
 .btn_content{
   background: #09234ebf;
   border: 2px solid;
-  font-size: 25px;
+  font-size: 22px;
   color: #ffffff;
   padding: 10px 12px;
   border: 2px solid #19194ca1;
