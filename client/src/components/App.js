@@ -46,7 +46,7 @@ class  App extends React.Component {
              <nav>
     <div className="nav-wrapper">
      
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons" style={{color:"white"}}>menu</i></a>
       <div className="navIcon"><img src={png} style={{height:"85px"}} />
       <span className="navText">Packers and Movers</span>
       </div>
