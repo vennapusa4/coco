@@ -160,6 +160,7 @@
       padding-right: 1rem;
   }
 }
+
 .cocoBody{
 min-height: 80vh;
 padding-top: 50px;
@@ -172,19 +173,39 @@ padding-right: 5px;
   font-weight: 600;
   color: white;
   font-size: 32px;
+  white-space: nowrap;
   POSITION: RELATIVE;
   TOP: 10PX;
   RIGHT: 10PX;
 }
+
 nav{
   background-color: #304d67d1;
   z-index: 999999;
 }
 .navIcon{
+  display: inline;
   POSITION: RELATIVE;
+  left: 35px;
   TOP: -10PX;
-  RIGHT: -10PX;
+  display: inline-flex;
 }
 nav ul a {
   font-size: 16px;
+}
+nav .sidenav-trigger {
+  margin: 0px;
+  margin-left: 10px;
+}
+.sidenav {
+  z-index: 10000;
+}
+@media screen and (max-width: 991px) {
+  .navText{
+    font-size: 2rem;
+
+  }
+  .navIcon{
+    left: -10px;
+  }
 }

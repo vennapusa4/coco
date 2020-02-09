@@ -25,6 +25,14 @@ class  App extends React.Component {
           //this.refs.rightSlider.style.left="-100%";
           //this.refs.rightSlider.style.transition="2.5s";
         }, 1000);
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.sidenav');
+          var instances = window.M.Sidenav.init(elems, {});
+        });
+      
+      
+        // Or with jQuery
+  
         this.props.fetchUser();
       }
   render(){
@@ -37,11 +45,11 @@ class  App extends React.Component {
       <div className="App">
              <nav>
     <div className="nav-wrapper">
-      <a href="#" className="brand-logo center">
+     
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <div className="navIcon"><img src={png} style={{height:"85px"}} />
       <span className="navText">Packers and Movers</span>
       </div>
-      </a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
       {this.props.user?
         <li><a href="/api/logout" >   Sign Out</a></li>:
@@ -50,6 +58,14 @@ class  App extends React.Component {
       </ul>
     </div>
   </nav>
+ 
+
+  <ul class="sidenav" id="mobile-demo">
+  {this.props.user?
+        <li><a href="/api/logout" >   Sign Out</a></li>:
+        <li><a  href="/auth/google" >   Sign In</a></li>
+      }
+  </ul>
          {this.props.user?
          <div className="cocofade">
         
