@@ -7,7 +7,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "apiai": "^4.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dialogflow": "^1.1.1",
     "http-proxy-middleware": "^0.20.0",
     "jquery": "^3.4.1",
